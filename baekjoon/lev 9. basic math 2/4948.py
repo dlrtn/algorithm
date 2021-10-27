@@ -1,18 +1,17 @@
-def prime_list(n, end):
-    # 에라토스테네스의 체 초기화: n개 요소에 True 설정(소수로 간주)
-    sieve = [i for i in range(n, end)]
+import math
 
-    m = int(end ** 0.5)
-    for i in range(2, m + 1):
-        if sieve[i] == True:           # i가 소수인 경우
-            for j in range(i+i, end, i): # i이후 i의 배수들을 False 판정
-                sieve[j] = False
+# 소수의 집합을 구함
+nums = {x for x in range(2, 246_913) if x == 2 or x % 2 ==1}
+# nums = 2와 홀수로 이루어진 집합
+for odd_num in range(3, int(math.sqrt(246_912))+1, 2):  # 3부터 최대값의 제곱근까지 홀수만
+    nums -= {i for i in range(2 * odd_num, 246_913, odd_num) if i in nums}
+    # 홀수의 배수로 이루어진 집합을 생성해서 빼줌
 
-    # 소수 목록 산출
-    return [i for i in range(n, end) if sieve[i] == True]
-
-while 1:
+# 반복문 만들기
+while True:
     n = int(input())
     if n == 0:
-        break
-    print(len(prime_list(n, 2*n)))
+        break  # n == 0 이면 반복문을 끝냄
+    sosu_list = [i for i in range(n+1, 2*n+1) if i in nums]
+    # 소수 집합(nums)안에서 n보다 크고 2*n보다 작거나 같은 수의 리스트를 생성
+    print(len(sosu_list))
