@@ -1,13 +1,11 @@
-a, b = map(int, input().split())
-c = []
-for i in range(a):
-    temp = int(input())
-    c.append(temp)
-c.sort(reverse=True)
-cnt = 0
-for i in range(0, len(c)):
-    if (b % c[temp]) == 0:
-        b = b - b // c[temp]
-        cnt += b % c[temp]
+N, K = map(int, input().split())
+coin_lst = list()
+for i in range(N):
+    coin_lst.append(int(input()))
 
-print(cnt)
+count = 0
+for i in reversed(range(N)):
+    count += K//coin_lst[i]
+    K = K%coin_lst[i]
+
+print(count)
