@@ -8,6 +8,8 @@ str = []
 for x, y in arr:
     cnt = 0
     for i, j in arr:
-        if arr[i] > arr[x] and arr[j] > arr[y]:
+        if i > x and j > y:
             cnt += 1
     str.append(cnt+1)
+for i in range(n):
+    print(str[i], end = ' ')
