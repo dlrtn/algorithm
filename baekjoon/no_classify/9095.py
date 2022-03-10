@@ -1,0 +1,15 @@
+n = int(input())
+x = []
+x.append(0)
+x.append(1)
+x.append(2)
+x.append(4)
+x.append(7)
+x.append(13)
+x.append(24)
+x.append(44)
+x.append(81)
+x.append(149)
+x.append(274)
+for i in range(n):
+    print(x[int(input())])
