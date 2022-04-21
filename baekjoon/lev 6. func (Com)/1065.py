@@ -2,7 +2,7 @@ def hansoo(n):
     cnt = 99
     if n < 100:
         print(n)
-        return 0S
+        return 0
     else:
         for i in range(100, n + 1, 1):
             A = i // 100
