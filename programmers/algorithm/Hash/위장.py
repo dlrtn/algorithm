@@ -15,8 +15,11 @@ def solution(clothes):
     gob = 1
     if len(clothes_count) == 1:
         return clothes_count[0][1]
+
     else:
         for i in clothes_count:
             gob *= i[1] + 1
+
     answer += gob - 1
+
     return answer
