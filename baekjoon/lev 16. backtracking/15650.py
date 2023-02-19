@@ -1,16 +1,18 @@
-n, m = list(map(int, input().split()))
-
-s = []
-
-def dfs():
-    if len(s) == m:
-        print(' '.join(map(str, s)))
+def dfs(arr, idx):
+    if len(arr) == M:
+        print(*arr)
         return
 
-    for i in range(1, n + 1):
-        if i not in s:
-            s.append(i)
-            dfs()
-            s.pop()
+    for i in range(idx, N):
+        if not visited[i]:
+            visited[i] = True
+            arr.append(lst[i])
+            dfs(arr, i+1)
+            visited[i] = False
+            arr.pop()
 
-dfs()
+
+N, M = map(int, input().split())
+visited = [False for _ in range(N)]
+lst = [i for i in range(1, N+1)]
+dfs([], 0)
