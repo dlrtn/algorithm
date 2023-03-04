@@ -1,50 +1,62 @@
-import sys
-from collections import deque
+import copy
 
-m, n, h = map(int, input().split())
+N, M, H = map(int, input().split())
 
-matrix = [[list(map(int, sys.stdin.readline().split())) for _ in range(n)] for _ in range(h)]
-visited = [[[False]*m for _ in range(n)] for _ in range(h)]
+tomato = []
 
-queue = deque()
+for i in range(H):
+    temp = []
+    for j in range(M):
+        temp.append(list(map(int, input().split())))
+    tomato.append(temp)
 
-dx = [-1,1,0,0,0,0]
-dy = [0,0,-1,1,0,0]
-dz = [0,0,0,0,-1,1]
+sum = 0
 
-answer = 0
+for i in range(H):
+    for j in range(M):
+        sum += tomato[i][j].count(0)
 
-def bfs():
-    while queue:
-        x,y,z = queue.popleft()
+if sum == 0:
+    print(0)
+    exit()
 
-        for i in range(6):
-            nx = x + dx[i]
-            ny = y + dy[i]
-            nz = z + dz[i]
+count = 0
 
-            if nx < 0 or nx >= h or ny < 0 or ny >= n or nz < 0 or nz >= m:
-                continue
+now_tomato = copy.deepcopy(tomato)
 
-            if matrix[nx][ny][nz] == 0 and visited[nx][ny][nz] == False:
-                queue.append((nx,ny,nz))
-                matrix[nx][ny][nz] = matrix[x][y][z] + 1
-                visited[nx][ny][nz] = True
+while True:
+    cnt_tomato = copy.deepcopy(tomato)
+    sum = 0
+    count += 1
+    for i in range(H):
+        for j in range(M):
+            for k in range(N):
+                if tomato[i][j][k] == 1:
+                    if i > 0 and tomato[i - 1][j][k] == 0:
+                        cnt_tomato[i - 1][j][k] = 1
+                    if i < H - 1 and tomato[i + 1][j][k] == 0:
+                        cnt_tomato[i + 1][j][k] = 1
+                    if j > 0 and tomato[i][j - 1][k] == 0:
+                        cnt_tomato[i][j - 1][k] = 1
+                    if j < M - 1 and tomato[i][j + 1][k] == 0:
+                        cnt_tomato[i][j + 1][k] = 1
+                    if k > 0 and tomato[i][j][k - 1] == 0:
+                        cnt_tomato[i][j][k - 1] = 1
+                    if k < N - 1 and tomato[i][j][k + 1] == 0:
+                        cnt_tomato[i][j][k + 1] = 1
 
-for a in range(h):
-    for b in range(n):
-        for c in range(m):
-            if matrix[a][b][c] == 1 and visited[a][b][c] == 0:
-                queue.append((a,b,c))
-                visited[a][b][c] = True
-bfs()
+    tomato = copy.deepcopy(cnt_tomato)
 
-for a in matrix:
-    for b in a:
-        for c in b:
-            if c == 0:
-                print(-1)
-                exit(0)
-        answer = max(answer, max(b))
+    for i in range(H):
+        for j in range(M):
+            sum += tomato[i][j].count(0)
 
-print(answer-1)
+    if sum == 0:
+        print(count)
+        break
+
+    if tomato == now_tomato:
+        print(-1)
+        break
+
+    now_tomato = copy.deepcopy(tomato)
