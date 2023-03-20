@@ -14,7 +14,7 @@ algorithm
 전남대학교 3학년 2학기 재학 중 수강했던 문제해결 프로젝트 과목의 목차별 과제 풀이내용 및 학습자료입니다.  
 기초적인 수학적 접근법부터 시작하여 자료구조를 통한 문제 접근법을 익혔습니다.
 
-[소스코드 구경가기](https://github.com/dlrtn/algorithm/tree/main/problem_solving_project)
+[소스코드 구경가기](https://github.com/dlrtn/algorithm/tree/main/problem-solving-project)
 
 - ### programmers
 ---
