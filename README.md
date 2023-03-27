@@ -6,7 +6,7 @@ algorithm
 ### baekjoon
 
 백준 알고리즘 문제를 해결한 소스코드, 문제 - [단계별로 풀어보기](https://www.acmicpc.net/step) 항목을 토대로 정리하였으며  
-폴더구조는 baekjoon - lev {*} - {****}.(py, cpp, c 등) 형태로 구성했습니다.
+폴더구조는 baekjoon - lev {$} - {$}.(py, cpp, c 등) 형태로 구성했습니다.
   
 [소스코드 구경가기](https://github.com/dlrtn/algorithm/tree/main/baekjoon)
 ### problem-solving-project
