@@ -1,15 +1,15 @@
-def generateParenthesis(self, n: int) -> List[str]:
-    def dfs(left, right, s):
-        if len(s) == n * 2:
-            res.append(s)
-            return
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        def generate(string, left, right, result):
+            if left == 0 and right == 0:
+                result.append(string)
+                return
 
-        if left < n:
-            dfs(left + 1, right, s + '(')
+            if left > 0:
+                generate(string + '(', left - 1, right, result)
+            if right > left:
+                generate(string + ')', left, right - 1, result)
 
-        if right < left:
-            dfs(left, right + 1, s + ')')
-
-    res = []
-    dfs(0, 0, '')
-    return res
+        result = []
+        generate('', n, n, result)
+        return result
