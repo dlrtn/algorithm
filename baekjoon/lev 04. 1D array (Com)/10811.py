@@ -5,8 +5,6 @@ lst = []
 for i in range(a):
     lst.append(str(i + 1))
 
-print(lst)
-
 for i in range(b):
     x, y = map(int, input().split())
     temp_lst = lst[x - 1:y]
