@@ -1,20 +1,14 @@
 n = int(input())
 
-dic = {}
-
-all_member = []
+dance = {'ChongChong'}
 for i in range(n):
-    now_list = input().split()
+    a, b = input().split()
 
-    if now_list[0] not in dic.keys():
-        dic[now_list[0]] = []
-    dic[now_list[0]].append(now_list[1])
+    if a in dance:
+        dance.add(b)
 
-visited = []
-list = []
-
-for i in dic.keys():
-    if i not in visited:
+    elif b in dance:
+        dance.add(a)
 
 
-print(dic)
+print(len(dance))
