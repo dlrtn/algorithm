@@ -1,6 +1,6 @@
 N = int(input())
 
-lst = [[0] * N for i in range(N)]
+lst = [[0] * N for _ in range(N)]
 print(lst)
 
 T = int(input())
