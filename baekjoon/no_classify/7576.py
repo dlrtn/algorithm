@@ -16,8 +16,8 @@ for i in range(N):
         if graph[i][j] == 1:
             queue.append([i, j])
 
-dx = [0, 0, -1, 1]
-dy = [-1, 1, 0, 0]
+dx = [0, 0, -1, 1, 0, 0]
+dy = [-1, 1, 0, 0, -N, +N]
 
 
 def bfs():
