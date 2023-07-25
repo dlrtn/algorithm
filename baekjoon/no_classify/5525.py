@@ -1,17 +1,17 @@
 def make_table(p):
     table = [0] * len(p)
-    j = 0
-    for i in range(1, len(p)):
-        while j > 0 and p[i] != p[j]:
-            j = table[j - 1]
+    for i in range(len(p)):
+        if i == 0 or i == 1:
+            table[i] = 0
+        else:
+            table[i] = i - 1
 
-        if p[i] == p[j]:
-            j += 1
-            table[i] = j
+
     return table
 
 def KMP(p):
     table = make_table(p)
+    print(table)
     cnt = 0
     j = 0
     for i in range(len(s)):
