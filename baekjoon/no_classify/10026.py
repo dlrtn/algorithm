@@ -29,6 +29,7 @@ def bfs_for_normal(color, x, y):
                 queue.append((nx, ny))  # Corrected the append() method
                 normal_visited.add((nx, ny))
 
+
 red_green_count = 0
 red_green_visited = set()
 
