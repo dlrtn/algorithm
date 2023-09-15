@@ -1,25 +1,19 @@
-N = int(input())
+import sys
 
-arr = []
+N = int(sys.stdin.readline())
+stair_list = []
 
-for i in range(N):
-    arr.append(int(input()))
+for _ in range(N):
+    stair_list.append(int(sys.stdin.readline()))
 
-dp = [0] * N
+dp = [0 for _ in range(N + 1)]
 
-if N > 3:
-    dp[0] = arr[0]
-    dp[1] = max(arr[0] + arr[1], arr[1])
-    dp[2] = max(arr[0] + arr[2], arr[1] + arr[2])
+dp[1] = stair_list[0]
+dp[2] = stair_list[1] + dp[1]
+dp[3] = max(stair_list[2] + dp[1], stair_list[2] + dp[2])
 
-    for i in range(3, N):
-        dp[i] = max(dp[i - 2] + arr[i], arr[i - 1] + arr[i] + dp[i - 3])
-    print(dp[-1])
-else :
-    if N == 1:
-        print(arr[0])
-    elif N == 2:
-        print(max(arr[0] + arr[1], arr[1]))
-    else :
-        print(max(arr[0] + arr[2], arr[1] + arr[2]))
+for i in range(4, N):
+    dp[i] = max(dp[N-3] + dp[N-2], dp[N-3] + dp[N-1], dp[N-2] + dp[N-1]) + stair_list[i - 1]
 
+print(dp)
+print(dp[N])
