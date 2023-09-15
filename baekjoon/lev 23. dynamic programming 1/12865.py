@@ -1,10 +1,8 @@
-a,b = list(map(int, input().split()))
-A = []
-B = []
+import sys
 
-for i in range(a):
-    A.append(0)
-    B.append(0)
-    A[i], B[i] = list(map(int, input().split()))
-max = []
+N, K = map(int, sys.stdin.readline().split())
+item_list = []
+
+for _ in range(N):
+    item_list.append(list(map(int, sys.stdin.readline().split())))
 
