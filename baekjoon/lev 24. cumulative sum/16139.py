@@ -1,25 +1,24 @@
 import sys
 
-S = sys.stdin.readline().rstrip()
-q = int(sys.stdin.readline())
+input = sys.stdin.readline
 
-alpha = dict()
+name = input().strip()
+n = int(input())
+arr = [[0 for _ in range(26)] for _ in range(len(name))]
+arr[0][ord(name[0]) - 97] = 1
 
-for i in range(ord('a'), ord('z') + 1):
-    alpha[chr(i)] = [[0] * len(S) for _ in range(len(S))]
+for i in range(1, len(name)):
+    arr[i][ord(name[i]) - 97] = 1
+    for j in range(26):
+        arr[i][j] += arr[i - 1][j]
 
-for i in alpha.keys():
-    for j in range(len(S)):
-        for k in range(j, len(S)):
-            if S[k] == i:
-                alpha[i][j][k] += 1
+for i in range(n):
+    a = input().split()
 
-for i in alpha.keys():
-    for j in range(len(S)):
-        for k in range(j + 1, len(S)):
-            alpha[i][j][k] += alpha[i][j][k - 1]
+    if int(a[1]) > 0:
+        res = arr[int(
+            a[2])][ord(a[0]) - 97] - arr[int(a[1]) - 1][ord(a[0]) - 97]
+    else:
+        res = arr[int(a[2])][ord(a[0]) - 97]
 
-for i in range(q):
-    a, l, r = sys.stdin.readline().split()
-
-    print(alpha[a][int(l)][int(r)])
+    print(res)
