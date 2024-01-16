@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         if len(strs) == 1:
             return strs[0]

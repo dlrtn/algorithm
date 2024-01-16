@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def convert(self, s: str, numRows: int) -> str:
         n = 2 * numRows - 2
         print(n)

@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def isPalindrome(self, s: str) -> bool:
         start, end = 0, len(s) - 1
         while start < end:

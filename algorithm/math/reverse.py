@@ -12,5 +12,5 @@ else:
     print("Inverse of matrix A:")
     print(A_1)
 
-    print("Solution of linear equations:")
+    print("MostReceivedGift of linear equations:")
     print(np.dot(A_1, lst))

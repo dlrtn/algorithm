@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def lengthOfLongestSubstring(self, s: str) -> int:
         left = 0
         temp = []

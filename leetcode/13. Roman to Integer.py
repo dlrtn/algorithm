@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def romanToInt(self, s: str) -> int:
         count = 0
         dic = {

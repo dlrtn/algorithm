@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def threeSumClosest(self, nums: List[int], target: int) -> int:
 
         nums.sort()

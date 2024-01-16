@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def isValid(self, s: str) -> bool:
         stack = []
         opening_brackets = {'(', '[', '{'}

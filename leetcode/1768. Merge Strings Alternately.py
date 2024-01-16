@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def mergeAlternately(self, word1: str, word2: str) -> str:
         count = 0
         word1_list = list(word1)

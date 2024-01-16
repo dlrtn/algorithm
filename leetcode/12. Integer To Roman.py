@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def intToRoman(self, num: int) -> str:
         answer = ''
         if num >= 1000:

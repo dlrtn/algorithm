@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def searchInsert(self, nums: List[int], target: int) -> int:
         left = 0
         right = len(nums) - 1

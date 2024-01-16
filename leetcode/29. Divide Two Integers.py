@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def divide(self, dividend: int, divisor: int) -> int:
         sign = -1 if (dividend >= 0 and divisor < 0) or (dividend < 0 and divisor >= 0) else 1
         dividend = abs(dividend)

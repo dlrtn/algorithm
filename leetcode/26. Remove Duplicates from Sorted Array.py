@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def removeDuplicates(self, nums: List[int]) -> int:
         char = set()
         p = 0

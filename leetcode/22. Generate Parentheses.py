@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def generateParenthesis(self, n: int) -> List[str]:
         def generate(string, left, right, result):
             if left == 0 and right == 0:

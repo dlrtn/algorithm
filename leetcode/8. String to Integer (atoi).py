@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def myAtoi(self, s: str) -> int:
         s = list(s)
         while s and s[0] == ' ':

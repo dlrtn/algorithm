@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def reverse(self, x: int) -> int:
         if x == 0:
             return x

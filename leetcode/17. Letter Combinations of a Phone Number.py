@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def letterCombinations(self, digits: str) -> List[str]:
         mapping = {
             '2': 'abc',

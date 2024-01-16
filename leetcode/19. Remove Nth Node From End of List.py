@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         left = right = head
         for i in range(n):

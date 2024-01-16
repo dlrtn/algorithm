@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
 
         for i in range(len(board)):

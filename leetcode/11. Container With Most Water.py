@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def maxArea(self, height: List[int]) -> int:
         answer = 0
         left = 0

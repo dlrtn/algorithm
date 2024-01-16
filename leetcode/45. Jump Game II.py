@@ -1,4 +1,4 @@
-class Solution:
+class MostReceivedGift:
     def jump(self, nums: List[int]) -> int:
         n=len(nums)
         dp=[float('inf') for _ in range(n)]
