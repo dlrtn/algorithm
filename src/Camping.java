@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class Camping {
 
     public static void main(String[] args) {
 
