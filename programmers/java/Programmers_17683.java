@@ -93,7 +93,8 @@ class Solution {
                     int o2PlayTime = musicPlayTime.get(o2);
                     if (o1PlayTime == o2PlayTime) {
                         return inputOrder.stream().collect(
-                                java.util.stream.Collectors.toList()).indexOf(o1) - inputOrder.stream()
+                                java.util.stream.Collectors.toList()).indexOf(o1)
+                                - inputOrder.stream()
                                 .collect(java.util.stream.Collectors.toList()).indexOf(o2);
                     }
                     return o2PlayTime - o1PlayTime;
