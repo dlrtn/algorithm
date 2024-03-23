@@ -1,62 +1,58 @@
 package graph;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
-
 public class UnionFind {
 
-    private static int[] unionFind;
+    private int[] parent;
+    private int[] rank;
 
-    public static void union(int i, int j) {
-        int parentI = find(i);
-        int parentJ = find(j);
+    public UnionFind(int n) {
+        parent = new int[n];
+        rank = new int[n];
 
-        if (parentI != parentJ) {
-            if (parentI < parentJ) {
-                unionFind[parentJ] = parentI;
-            } else {
-                unionFind[parentI] = parentJ;
+        for (int i = 0; i < n; i++) {
+            parent[i] = i;
+        }
+    }
+
+    public int find(int x) {
+        if (parent[x] == x) {
+            return x;
+        }
+
+        return parent[x] = find(parent[x]);
+    }
+
+    public void union(int x, int y) {
+        x = find(x);
+        y = find(y);
+
+        if (x == y) {
+            return;
+        }
+
+        if (rank[x] < rank[y]) {
+            parent[x] = y;
+        } else {
+            parent[y] = x;
+
+            if (rank[x] == rank[y]) {
+                rank[x]++;
             }
         }
     }
 
-    public static int find(int i) {
-        if (unionFind[i] == i) {
-            return i;
-        }
-        return unionFind[i] = find(unionFind[i]);
+    public boolean isSameParent(int x, int y) {
+        return find(x) == find(y);
     }
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+    public static void main(String[] args) {
+        UnionFind uf = new UnionFind(5);
 
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
+        uf.union(0, 1);
+        uf.union(2, 3);
+        uf.union(0, 4);
 
-        unionFind = new int[n + 1];
-        for (int i = 1; i <= n; i++) {
-            unionFind[i] = i;
-        }
-
-        for (int i = 0; i < m; i++) {
-            st = new StringTokenizer(br.readLine());
-            int command = Integer.parseInt(st.nextToken());
-            int a = Integer.parseInt(st.nextToken());
-            int b = Integer.parseInt(st.nextToken());
-
-            if (command == 0) {
-                union(a, b);
-            } else {
-                if (unionFind[a] != unionFind[b]) {
-                    System.out.println("NO");
-                } else {
-                    System.out.println("YES");
-                }
-            }
-        }
+        System.out.println(uf.isSameParent(1, 4));
     }
 
 }
