@@ -1,11 +1,10 @@
-package programmers;
-
 import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class Pro_64062 {
 
     public static class Node {
+
         int value;
         int index;
 

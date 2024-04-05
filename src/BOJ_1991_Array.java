@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -10,9 +11,18 @@ public class BOJ_1991_Array {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-
+        st.nextToken().split(" ");
         int n = Integer.parseInt(st.nextToken());
         char[] arr = new char[(int) Math.pow(2, 27)];
+
+        int a = 10;
+        int b = 3;
+
+        float answer = (float) (a + b) / (a - b);
+
+        Math.round(answer);
+
+
         Map<Character, Integer> map = new HashMap<>();
 
         arr[1] = 'A';
