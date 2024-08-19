@@ -1,65 +1,52 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.StringTokenizer;
+
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-
         int n = Integer.parseInt(st.nextToken());
-        long k = Long.parseLong(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        long[] arr = new long[n];
-
-        st = new StringTokenizer(br.readLine());
+        int[][] map = new int[n][m];
         for (int i = 0; i < n; i++) {
-            arr[i] = Long.parseLong(st.nextToken());
-        }
-
-        Arrays.sort(arr);
-
-        Map<Long, Long> map = new HashMap<>();
-
-        for (int i = 0; i < n; i++) {
-            long num = arr[i] % k;
-
-            if (map.containsKey(num)) {
-                map.put(num, map.get(num) + 1);
-            } else {
-                map.put(num, 1L);
+            st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < m; j++) {
+                map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
-        long count = 0;
-        for (Entry<Long, Long> entry : map.entrySet()) {
-            long value = entry.getValue();
+        int answer = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                for (int k = i; k < n; k++) {
+                    for (int l = j; l < m; l++) {
+                        int count = 0;
+                        for (int o = i; o <= k; o++) {
+                            for (int p = j; p <= l; p++) {
+                                if (map[o][p] > 0) {
+                                    count++;
+                                }
+                            }
+                        }
 
-            if (value >= 2) {
-                count += calculateCombinations(value, 2);
+                        if (count == (k - i + 1) * (l - j + 1)) {
+                            answer = Math.max(answer, count);
+                        }
+                    }
+                }
             }
         }
 
-        System.out.println(count);
-    }
-
-    // 조합의 개수를 계산하는 메서드
-    public static long calculateCombinations(long n, int r) {
-        return factorial(n) / (factorial(r) * factorial(n - r));
-    }
-
-    // 팩토리얼을 계산하는 메서드
-    public static long factorial(long n) {
-        if (n == 0 || n == 1) {
-            return 1;
-        } else {
-            return n * factorial(n - 1);
+        if (answer == 0) {
+            System.out.println(-1);
+            return;
         }
+
+        System.out.println(answer);
     }
 }
